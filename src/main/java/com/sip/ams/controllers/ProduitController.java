@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/produits")
 public class ProduitController {
 	@Value("${formateur}")
 	private String trainer;
@@ -13,9 +14,12 @@ public class ProduitController {
 	@Value("${formation}")
 	private String course;
 	
-	@RequestMapping("info")
+	@Value("${secretProduit}")
+	private String secret;
+	
+	@RequestMapping("/info")
 	public String getInfo() {
-		return "<h1>"+ trainer+" "+team+" "+course+"</h1>";
+		return "<h1>"+ trainer+" "+team+" "+course+" "+secret+"</h1>";
 	}
 
 }
